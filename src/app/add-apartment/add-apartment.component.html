@@ -1,0 +1,71 @@
+<div class="container mt-4">
+    <h2>Ajouter un Appartement</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label for="apartNum" class="form-label">Numéro de l'appartement</label>
+        <input
+          type="number"
+          class="form-control"
+          id="apartNum"
+          [(ngModel)]="apartment.apartNum"
+          name="apartNum"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="floorNum" class="form-label">Numéro d'étage</label>
+        <input
+          type="number"
+          class="form-control"
+          id="floorNum"
+          [(ngModel)]="apartment.floorNum"
+          name="floorNum"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="surface" class="form-label">Surface (m²)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="surface"
+          [(ngModel)]="apartment.surface"
+          name="surface"
+          required
+        />
+      </div>
+      <div class="mb-3 form-check">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="terrace"
+          [(ngModel)]="apartment.terrace"
+          name="terrace"
+        />
+        <label class="form-check-label" for="terrace">Terrasse</label>
+      </div>
+      <div class="mb-3" *ngIf="apartment.terrace">
+        <label for="surfaceterrace" class="form-label">Surface de la terrasse (m²)</label>
+        <input
+          type="number"
+          class="form-control"
+          id="surfaceterrace"
+          [(ngModel)]="apartment.surfaceterrace"
+          name="surfaceterrace"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="category" class="form-label">Catégorie</label>
+        <input
+          type="text"
+          class="form-control"
+          id="category"
+          [(ngModel)]="apartment.category"
+          name="category"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <h2 class="text-center mb-4">Liste des Appartements</h2>
+
+  <div class="d-flex justify-content-end mb-3">
+    <button 
+      class="btn btn-primary" 
+      (click)="toggleAddForm()">
+      Ajouter un nouvel appartement
+    </button>
+  </div>
+
+  <div *ngIf="showAddForm">
+    <app-add-apartment (apartmentAdded)="addApartment($event)"></app-add-apartment>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div *ngFor="let apartment of apartments" class="col">
+      <div class="card shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title">Appartement {{ apartment.apartNum }}</h5>
+          <p class="card-text">Étage : {{ apartment.floorNum }}</p>
+          <p class="card-text">Surface : {{ apartment.surface }} m²</p>
+          <p class="card-text" *ngIf="apartment.terrace">Terrasse : {{ apartment.surfaceterrace }} m²</p>
+          <p class="card-text">Catégorie : {{ apartment.category }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container mt-4">
+    <div class="row">
+      <div *ngFor="let residence of residences" class="col-md-6 mb-4">
+        <div class="card">
+          <img [src]="residence.image" alt="{{ residence.name }}" class="card-img-top" style="height: 200px; object-fit: cover;">
+          <div class="card-body">
+            <h5 class="card-title">{{ residence.name }}</h5>
+            <div class="d-flex justify-content-center">
+              <button class="btn btn-outline-primary" [routerLink]="['/residences', residence.id]">
+                Détails
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

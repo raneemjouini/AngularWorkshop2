@@ -1,0 +1,17 @@
+<div class="container mt-4">
+    <h2>Appartements pour la Résidence {{ residenceId }}</h2>
+    <div class="row g-4">
+      <div *ngFor="let apartment of apartments" class="col-md-4">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title">Appartement {{ apartment.apartNum }}</h5>
+            <p class="card-text">Étage : {{ apartment.floorNum }}</p>
+            <p class="card-text">Surface : {{ apartment.surface }} m²</p>
+            <p class="card-text" *ngIf="apartment.terrace">Terrasse : {{ apartment.surfaceterrace }} m²</p>
+            <p class="card-text">Catégorie : {{ apartment.category }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

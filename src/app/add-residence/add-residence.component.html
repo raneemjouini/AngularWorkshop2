@@ -1,0 +1,35 @@
+<div class="container mt-4">
+    <h2>{{ isUpdateMode ? 'Update Residence' : 'Add Residence' }}</h2>
+  
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Nom</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="residenceDetails.name" name="name" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="address">Adresse</label>
+        <input type="text" id="address" class="form-control" [(ngModel)]="residenceDetails.address" name="address" required />
+      </div>
+  
+      <div class="form-group">
+        <label for="status">Status</label>
+        <select id="status" class="form-control" [(ngModel)]="residenceDetails.status" name="status">
+          <option value="Disponible">Disponible</option>
+          <option value="Vendu">Vendu</option>
+          <option value="En Construction">En Construction</option>
+        </select>
+      </div>
+
+  
+      <div class="form-group">
+        <label for="image">Image</label>
+        <input type="text" id="image" class="form-control" [(ngModel)]="residenceDetails.image" name="image" />
+      </div>
+  
+      <button type="submit" class="btn btn-primary mt-3">
+        {{ isUpdateMode ? 'Update Residence' : 'Add Residence' }}
+      </button>
+    </form>
+  </div>
+  

@@ -1,0 +1,71 @@
+<div class="container mt-4">
+  <h2>Liste des Résidences</h2>
+  
+  <input
+    type="text"
+    class="form-control my-3"
+    placeholder="Chercher par adresse"
+    [(ngModel)]="search_item"
+  />
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filtreByAddress()">
+        <td>
+          <img
+            [src]="item.image"
+            [alt]="item.name"
+            width="100px"
+            height="100px"
+          />
+        </td>
+        <td>{{ item.name }}</td>
+        <td>
+          <span [ngStyle]="{color: getColor(item.status)}">
+            {{ item.status }}
+          </span>
+        </td>
+        <td>
+          <button
+            type="button"
+            class="btn btn-outline-primary btn-sm me-2"
+            (click)="showLocation(item.address)"
+          >
+            Show location
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm me-2"
+            (click)="addFavorite(item)"
+          >
+            Like
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-info btn-sm me-2"
+            [routerLink]="['/residences', item.id]"
+          >
+            Details
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-success btn-sm"
+            [routerLink]="['/residences', item.id, 'apartments']"
+          >
+            Appartements List
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <router-outlet></router-outlet>
+</div>
